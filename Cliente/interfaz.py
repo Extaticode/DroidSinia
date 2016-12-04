@@ -86,12 +86,43 @@ ui='''
 		Button: 
 			text: "Guardar"
 			on_press: root.Recollect_data(ip.text, puerto.text)
+
+
+
+	
+
 				
 
 <Arpspoofing_screen>:
 	GridLayout:
-		cols: 1
-		
+		cols: 3
+		BoxLayout:
+			orientation: 'vertical'
+			spacing: 0
+			padding: 0,0,0,0	
+			
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+
+			Button: 
+				text: "Atacar"
+				height: 14
+				on_press: root.iniciar_ataque()
 		BoxLayout:
 			orientation: 'vertical'
 			spacing: 0
@@ -112,6 +143,7 @@ ui='''
 			TextInput:
 				id: ip_suplantada
 				multiline: False
+
 			
 			Label:
 				font_size: 22
@@ -120,14 +152,47 @@ ui='''
 			TextInput:
 				id: interfaz
 				multiline: False
-			Button: 
-				text: "Atacar"
+			Label:
+				font_size: 22
+				text: 'Feedback'
+				color: (.98,.25,.39,1)
+			TextInput:
+				id: feedback
+				multiline: True
+			
 				
 			
 			
 			Button: 
 				text: "Volver"
 				on_press: app.cambiar_screen('MIAPP')
+		BoxLayout:
+			orientation: 'vertical'
+			spacing: 0
+			padding: 0,0,0,0
+			
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)
+			Label:
+				font_size: 22
+				
+				color: (.98,.25,.39,1)	
+			
+			Button: 
+				text: "Parar ataque"
+				height: 14
+				on_press: root.parar_ataque()
 
 <Nmapscan_screen>:
 	GridLayout:
@@ -155,27 +220,26 @@ ui='''
 				id: netmask
 				text:''
 				multiline: False
-			
-			
-
-
+			Label:
+				font_size: 22
+				text: 'Feedback'
+				color: (.98,.25,.39,1)
+			TextInput:
+				id: feedback
+				text:''
+				multiline: False
 
 
 			Button: 
 				text: "Ecanear"
-				
 				on_press: root.escanernmap()
 
 
-	
 			
 		BoxLayout:
 			orientation: 'vertical'
 			spacing: 0
 			padding: 0,0,0,0
-
-			
-
 
 			Label:
 				font_size: 22
@@ -212,10 +276,24 @@ ui='''
 	GridLayout:
 		cols: 1
 		row : 1
-		Label:
+		TextInput:	
+			id: resultado
 			font_size: 22
-			text: 'resultado'
-			color: (.98,.25,.39,1)
+			text: ''
+			multiline: True
+		Button:
+			text: 'actualizar'
+			font_size: 22
+			height: 9
+			background_color: (.35,.75,.87, 1)
+			on_press : root.actualiza_ips()
+		Button:
+			text: 'menu princial'
+			font_size: 22
+			height: 9
+			background_color: (.35,.75,.87, 1)
+			on_press : app.cambiar_screen('MIAPP')
+
 
 <Netdiscover_screen>
 	GridLayout:
@@ -252,6 +330,25 @@ ui='''
 		TextInput:
 			id: interfaz_macflooding
 			multiline: False
+
+		Label:
+			font_size: 22
+			text: 'Iteraciones'
+			color: (.98,.25,.39,1)
+		TextInput:
+			id: iteraciones_macflooding
+			multiline: False
+			text:''
+		
+		Label:
+			font_size: 22
+			text: 'Feedback'
+			color: (.98,.25,.39,1)
+		TextInput:
+			id: feedback
+			multiline: True
+					
+		
 		Button:
 			text: 'attack'
 			font_size: 22

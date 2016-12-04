@@ -40,7 +40,7 @@ class Nmapscan_screen(Screen):
 		
 	def escanernmap(self):
 		globalvar.lista_ips=[] 
-		comando = "nmap -sn "
+		comando = "comando1  "
 		
 		if(self.arpscan==1):
 			comando+="-PR "
@@ -64,7 +64,7 @@ class Nmapscan_screen(Screen):
 			if (data=="close"):
 				break			
 			else:
-				print data			
+							
 				mensaje+=data
 				data=""
 				
@@ -76,8 +76,8 @@ class Nmapscan_screen(Screen):
 		globalvar.lista_ips=[]
 		hosts_info=mensaje.split("-")
 		for item in hosts_info:
-			subitem = item.split()
-			print (subitem)
+			globalvar.lista_ips.append(item)
+			self.ids["feedback"].text+=item+"/n"
 		
 		
 		
